@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">DifferentFlowsWithCompose</string>
+    <string name="total_attendees">Total attendees: %1$s</string>
+    <string name="by">By %1$s</string>
+    <string name="start_event">Start Event</string>
+    <string name="end_event">End Event</string>
+    <string name="join">Join</string>
+    <string name="leave">Leave</string>
+    <string name="participant_1">Participant 1</string>
+    <string name="participant_2">Participant 2</string>
+</resources>
