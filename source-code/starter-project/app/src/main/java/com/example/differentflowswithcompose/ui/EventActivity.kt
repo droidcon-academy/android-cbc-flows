@@ -68,10 +68,9 @@ class EventActivity : ComponentActivity() {
 
 @Composable
 fun TotalAttendees(viewModel: EventViewModel) {
+    //TODO "Implementation missing"
     Text(
-        text = stringResource(
-            R.string.total_attendees, TODO("Implementation missing")
-        )
+        text = stringResource(R.string.total_attendees, 0)
     )
 }
 
@@ -83,7 +82,7 @@ fun StartEventAndAttendees(viewModel: EventViewModel) {
         ) {
             Button(
                 onClick = {
-                    TODO("Implementation missing")
+                    //TODO Implementation missing
                 },
                 modifier = Modifier
                     .padding(8.dp)
@@ -94,7 +93,7 @@ fun StartEventAndAttendees(viewModel: EventViewModel) {
             Spacer(modifier = Modifier.width(4.dp))
             Button(
                 onClick = {
-                    TODO("Implementation missing")
+                    //TODO Implementation missing
                 },
                 modifier = Modifier
                     .padding(8.dp)
@@ -132,7 +131,7 @@ fun ParticipantsInfo(viewModel: EventViewModel) {
                         .weight(1F),
                     onClick = {
                         attendingEvent = true
-                        TODO("Implementation missing")
+                        //TODO Implementation missing
                     }
                 ) {
                     Text(text = stringResource(R.string.join))
@@ -143,14 +142,14 @@ fun ParticipantsInfo(viewModel: EventViewModel) {
                         .weight(1F),
                     onClick = {
                         attendingEvent = false
-                        TODO("Implementation missing")
+                        //TODO Implementation missing
                     }
                 ) {
                     Text(text = stringResource(R.string.leave))
                 }
             }
             if (attendingEvent) {
-                TODO("Implementation missing")
+                //TODO Implementation missing
                 /*val state by viewModel.events.collectAsStateWithLifecycle(emptyList())
                 LazyColumn {
                     items(items = state,
@@ -179,7 +178,7 @@ fun ParticipantsInfo(viewModel: EventViewModel) {
                         .weight(1F),
                     onClick = {
                         attendingEvent = true
-                        TODO("Implementation missing")
+                        //TODO Implementation missing
                     }
                 ) {
                     Text(text = stringResource(R.string.join))
@@ -190,14 +189,14 @@ fun ParticipantsInfo(viewModel: EventViewModel) {
                         .weight(1F),
                     onClick = {
                         attendingEvent = false
-                        TODO("Implementation missing")
+                        //TODO Implementation missing
                     }
                 ) {
                     Text(text = stringResource(R.string.leave))
                 }
             }
             if (attendingEvent) {
-                TODO("Implementation missing")
+                //TODO Implementation missing
                 /*val state by viewModel.events.collectAsStateWithLifecycle(emptyList())
                 LazyColumn {
                     items(items = state,
