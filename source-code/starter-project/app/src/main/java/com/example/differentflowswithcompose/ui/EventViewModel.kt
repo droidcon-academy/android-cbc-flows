@@ -24,11 +24,6 @@ class EventViewModel(private val repository: EventRepository) : ViewModel() {
     private val _events = MutableStateFlow<List<EventDTO>>(emptyList())
     val events = _events.asStateFlow()
 
-    sealed interface UiState {
-        object EMPTY : UiState
-        data class Result(val eventDTO: EventDTO) : UiState
-    }
-
     private fun getTotalAttendees() {
         viewModelScope.launch {
             _totalAttendees.value = repository.getTotalAttendees().first()

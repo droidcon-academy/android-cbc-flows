@@ -1,13 +1,16 @@
 package com.example.differentflowswithcompose.ui
 
 import android.util.Log
+import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.differentflowswithcompose.data.EventRepository
 import com.example.differentflowswithcompose.domain.adapter.toEventDto
 import com.example.differentflowswithcompose.domain.dto.EventDTO
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
@@ -25,11 +28,6 @@ class EventViewModel(private val repository: EventRepository) : ViewModel() {
     private var startEventsJob: Job? = null
     private var getEventsJob: Job? = null
 
-    sealed interface UiState {
-        object EMPTY : UiState
-        data class Result(val eventDTO: EventDTO) : UiState
-    }
-
     private fun getTotalAttendees() {
         viewModelScope.launch {
             _totalAttendees.value = repository.getTotalAttendees().first()
@@ -37,10 +35,8 @@ class EventViewModel(private val repository: EventRepository) : ViewModel() {
     }
 
     fun startEvent() {
-        //Cancel any previously running job that is emitting event or has emitted any events
         cancelAllEventJobs()
 
-        // Reset any previously rendered view items
         _events.value = emptyList()
         startEventsJob = viewModelScope.launch {
             repository.startEvent()
@@ -60,7 +56,6 @@ class EventViewModel(private val repository: EventRepository) : ViewModel() {
 
     fun endEvent() {
         repository.endEvent()
-        cancelAllEventJobs()
     }
 
     private fun cancelAllEventJobs() {

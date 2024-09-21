@@ -69,9 +69,7 @@ class EventActivity : ComponentActivity() {
 @Composable
 fun TotalAttendees(viewModel: EventViewModel) {
     Text(
-        text = stringResource(
-            R.string.total_attendees, viewModel.totalAttendees.collectAsState().value
-        )
+        text = stringResource(R.string.total_attendees, viewModel.totalAttendees.collectAsState().value)
     )
 }
 
@@ -150,6 +148,7 @@ fun ParticipantsInfo(viewModel: EventViewModel) {
                 }
             }
             if (attendingEvent) {
+
                 val state by viewModel.events.collectAsStateWithLifecycle(emptyList())
                 LazyColumn {
                     items(items = state,
@@ -196,6 +195,7 @@ fun ParticipantsInfo(viewModel: EventViewModel) {
                 }
             }
             if (attendingEvent) {
+
                 val state by viewModel.events.collectAsStateWithLifecycle(emptyList())
                 LazyColumn {
                     items(items = state,

@@ -6,10 +6,9 @@ import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.flowOf
 
 class EventRepository {
+    private val eventManager = EventManager()
     private val totalAttendees = mutableSetOf<Int>()
 
-
-    private val eventManager = EventManager()
     suspend fun startEvent() {
         eventManager.startEvent()
     }
